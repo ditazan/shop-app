@@ -10,8 +10,10 @@ const StoreProvider = ({ value = [], ...props }) => {
   // returns : state (most up-to-date version of our global state object)  + dispatch (method we execute to update our state. looks for an action object passed in as its argument)
   const [state, dispatch] = useProductReducer({
     products: [],
+    cart: [],
+    cartOpen: false,
     categories: [],
-    currentCategory: "",
+    currentCategory: ''
   });
   // use this to confirm it works!
   // then return the StoreContext's <Provider> component with our state object and dispatch the function provided as data for the value prop.
@@ -24,5 +26,7 @@ const StoreProvider = ({ value = [], ...props }) => {
 const useStoreContext = () => {
   return useContext(StoreContext);
 };
+
+
 
 export { StoreProvider, useStoreContext };
